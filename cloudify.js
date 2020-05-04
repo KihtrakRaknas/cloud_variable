@@ -3,7 +3,7 @@ let socketScript = document.createElement('script');
 socketScript.src = "https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js";
 socketScript.onload = () => {
         //console.log("script added!")
-        let socket = io("https://cloud-variable.herokuapp.com/");//http://cloudify.kihtrak.com
+        let socket = io("http://cloudify.kihtrak.com");//https://cloud-variable.herokuapp.com/
         socket.on('init', (obj)=>{
             //console.log(obj)
             for(let prop in obj){
