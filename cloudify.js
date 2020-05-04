@@ -23,11 +23,9 @@ socketScript.onload = () => {
                 if (prop.indexOf("cloud_") == 0){
                         if(oldGlobal[prop] !== window[prop]){
                             //console.log(prop + " has changed from "+oldGlobal[prop]+" to "+window[prop])
-                            if(typeof window[prop] == "object")
-                                oldGlobal[prop] = JSON.parse(JSON.stringify(window[prop]));
-                            else
-                                oldGlobal[prop] = window[prop];
-                            socket.emit('varChanged', {[prop]: window[prop]});
+                            oldGlobal[prop] = (typeof window[prop] == "object")?JSON.parse(JSON.stringify(window[prop])):window[prop];                                
+                            console.log({[prop]: window[prop]})
+                            socket.emit('varChanged', {[prop]: (typeof window[prop] == "function")?window[prop].toString():window[prop]});
                         }
                 }
             }
