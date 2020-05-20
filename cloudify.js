@@ -19,7 +19,7 @@ socketScript.onload = () => {
         });
         let oldGlobal = {}
         let clean=(variable)=>{
-            console.log(variable)
+            //console.log(variable)
             if(typeof variable == "number" || typeof variable == "string")
                 return variable
             if(typeof variable == "object")
