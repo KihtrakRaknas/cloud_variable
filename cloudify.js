@@ -24,7 +24,9 @@ socketScript.onload = () => {
                 return variable
             if(typeof variable == "object")
                 return JSON.stringify(variable)
-            return variable.toString()
+            if(typeof variable == "function")
+                return variable.toString()
+            return variable
         }
         setInterval(()=>{
             for (let prop in window) { //global[prop]
