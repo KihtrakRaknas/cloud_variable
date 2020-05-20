@@ -32,6 +32,7 @@ socketScript.onload = () => {
         setInterval(()=>{
             for (let prop in window) { //global[prop]
                 if (prop.indexOf("cloud_") == 0){
+                        console.log(clean(oldGlobal[prop]) +" !== "+clean(window[prop]))
                         if(clean(oldGlobal[prop]) !== clean(window[prop])){
                             //console.log(prop + " has changed from "+oldGlobal[prop]+" to "+window[prop])
                             oldGlobal[prop] = (typeof window[prop] == "object")?JSON.parse(JSON.stringify(window[prop])):window[prop];                                
