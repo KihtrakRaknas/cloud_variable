@@ -18,10 +18,18 @@ socketScript.onload = () => {
             window[prop] = newObj[prop];
         });
         let oldGlobal = {}
+        let clean=(variable)=>{
+            if(typeof variable == "number" || typeof variable == "string")
+                return variable
+            if(typeof variable == "object")
+                return JSON.stringify(variable)
+            if(typeof variable == "function")
+                return variable.toString()
+        }
         setInterval(()=>{
             for (let prop in window) { //global[prop]
                 if (prop.indexOf("cloud_") == 0){
-                        if(oldGlobal[prop] !== window[prop]){
+                        if(clean(oldGlobal[prop]) !== clean(window[prop])){
                             //console.log(prop + " has changed from "+oldGlobal[prop]+" to "+window[prop])
                             oldGlobal[prop] = (typeof window[prop] == "object")?JSON.parse(JSON.stringify(window[prop])):window[prop];                                
                             console.log({[prop]: window[prop]})
@@ -29,6 +37,6 @@ socketScript.onload = () => {
                         }
                 }
             }
-        },500)  
+        },500)
  }
  document.head.appendChild(socketScript);
