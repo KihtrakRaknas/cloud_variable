@@ -8,7 +8,8 @@ socketScript.onload = () => {
             //console.log(obj)
             for(let prop in obj){
                 oldGlobal[prop] = obj[prop];
-                window[prop] = obj[prop];
+                if(window[prop] == null)
+                    window[prop] = obj[prop];
             }
         });  
         socket.on('newVal', (newObj)=>{
