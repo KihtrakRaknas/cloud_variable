@@ -34,7 +34,7 @@ socketScript.onload = () => {
                         if(clean(oldGlobal[prop]) !== clean(window[prop])){
                             //console.log(prop + " has changed from "+oldGlobal[prop]+" to "+window[prop])
                             oldGlobal[prop] = (typeof window[prop] == "object")?JSON.parse(JSON.stringify(window[prop])):window[prop];                                
-                            console.log({[prop]: window[prop]})
+                            //console.log({[prop]: window[prop]})
                             socket.emit('varChanged', {[prop]: (typeof window[prop] == "function")?window[prop].toString():window[prop]});
                         }
                 }
