@@ -4,11 +4,13 @@ socketScript.src = "https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socke
 socketScript.onload = () => {
     // console.log("script added!")
     let socket = io("https://cloud-variable.herokuapp.com/");//http://cloudify.kihtrak.com
-    let URL = encodeURIComponent(window.location.protocol + "//" + window.location.hostname).replace(/\./g, '%2E')
+    let URL = "playground"
+    if (window.location.hostname)
+        URL = encodeURIComponent(window.location.protocol + "//" + window.location.hostname).replace(/\./g, '%2E')
     socket.on('init-' + URL, (obj) => {
         //console.log(obj)
         for (let prop in obj) {
-            oldGlobal[prop] = obj[prop];
+            oldGlobal[prop] = JSON.parse(JSON.stringify(obj[prop]));
             if (window[prop] == null)
                 window[prop] = obj[prop];
         }
