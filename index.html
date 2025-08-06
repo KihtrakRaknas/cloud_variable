@@ -1,32 +1,38 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>cloud_variable</title>
     <link href="prism.css" rel="stylesheet" />
     <style>
-        .code{
+        .code {
             background-color: black;
-            padding:5px;
+            padding: 5px;
             border-radius: 5px;
-            color:white;
+            color: white;
         }
-        .heading{
+
+        .heading {
             text-decoration: underline;
         }
-        .container-fluid{
-            padding-left:30px;
-            padding-right:30px;
+
+        .container-fluid {
+            padding-left: 30px;
+            padding-right: 30px;
         }
-        pre{
+
+        pre {
             border-radius: 5px;
         }
+
         @media (max-width: 575.98px) {
             .display-1 {
                 font-size: 3rem;
@@ -36,21 +42,27 @@
             }
         }
     </style>
-  </head>
-  <body>
-    <div class="container-fluid">
+</head>
+
+<body>
+    <div class="container">
         <h1 class="text-center display-1">cloud_variable</h1>
+        <br>
+
         <h3 class="display-4 heading">What does it do?</h3>
-        <p>This simple service allows you to make any JS variable a "cloud variable"</p>
-        <p>This allows anyone to create server less websites.</p>
-        <p>Create chat room, mutliplayer games and anything else with 0 set up!</p>
+        <p>This simple service allows you to make any JS variable a "cloud variable".</p>
+        <p>This allows anyone to create serverless websites.</p>
+        <p>Create chat room, multiplayer games and anything else with minimal set up!</p>
+        <br>
+
         <h3 class="display-4 heading">Set Up</h3>
         <p>Add it by adding the following tag to your HTML</p>
         <pre><code class="language-html">&#60;script src="https://kihtrak.com/cloud_variable/cloudify.min.js"&#62;&#60;/script&#62;</code></pre>
-        <br/>
-        <p> You can run it through the console with: </p>
+        <br />
+        <p> For quick in-browser testing, you can run it directly through the console with: </p>
         <pre><code class="language-js">document.head.appendChild((($, s)=>{$.src=s;return $})(document.createElement('script'), "https://kihtrak.com/cloud_variable/cloudify.min.js"))</code></pre>
         <br><br>
+
         <h3 class="display-4 heading">Usage</h3>
         <p>To make a cloud variable, simply define a variable in JS with the prefix cloud_</p>
         <p>Example:</p>
@@ -61,17 +73,30 @@
         <pre><code class="language-js">cloud_views++; //the cloud_views variable will be incremented by one on all computers</code></pre>
         <p>If for some reason you need to delete a cloud_variable, just set it null</p>
         <pre><code class="language-js">cloud_views = null; //cloud_views will no longer exist in the backend and will be null on all computers</code></pre>
+        <br><br>
+
         <h3 class="display-4 heading">Security</h3>
-        <p>Cloud variables are edited on the front end. This poses unavoidable security concerns. It will be possible to other people to view and change your cloud variables (but only if they find your website).</p>
-        <p>I would not recomment storing sensitive data in a cloud variable. This tool is best suited for things like names, scores, viewcounts, etc.</p>
-        <p>Cloud variables are seperated by origin. This means that each domain/subdomain shares all their cloud variables. This enables different subpages on your site to talk to each other.</p>
+        <p>Cloud variables are edited on the front end. This poses unavoidable security concerns. It will be possible to
+            other people to view and change your cloud variables (but only if they find your website).</p>
+        <p>I would not recommend storing sensitive data in a cloud variable. This tool is best suited for things like
+            names, scores, view counts, etc.</p>
+        <p>Cloud variables are separated by origin. This means that each domain/subdomain shares all their cloud
+            variables. This
+            enables different subpages on your site to talk to each other.</p>
     </div>
     <script src="prism.js"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
     <script src="cloudify.js"></script>
-  </body>
+</body>
+
 </html>
